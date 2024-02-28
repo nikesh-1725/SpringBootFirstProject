@@ -20,6 +20,7 @@ public class StudentController {
 		this.studentService = studentService;
 	}
 	
+	// handler method to handle list of Students amd return mode and view
 	@GetMapping("/students")
 	public String listStudents(Model model)
 	{
@@ -27,6 +28,7 @@ public class StudentController {
 		return "students";
 	}
 	
+
 	@GetMapping("/students/new")
 	public String createStudentForm(Model model)
 	{
@@ -55,12 +57,14 @@ public class StudentController {
 	@PostMapping("/students/{id}")
 	public String updateStudent(@PathVariable Long id, @ModelAttribute("student") Student student, Model model) {
 		
+		// Get Student from database by using id
 		Student exisitingStuent = studentService.getStudentById(id);
 		exisitingStuent.setId(id);
 		exisitingStuent.setFirstName(student.getFirstName());
 		exisitingStuent.setLastName(student.getLastName());
 		exisitingStuent.setEmail(student.getEmail());
 		
+		// save updated student object
 		studentService.updateStudent(exisitingStuent);
 		
 		return "redirect:/students";
