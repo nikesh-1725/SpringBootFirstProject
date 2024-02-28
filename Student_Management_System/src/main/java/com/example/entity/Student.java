@@ -17,26 +17,28 @@ public class Student {
 	@Column(name="first_name", nullable=false)
 	private String firstName;
 	@Column(name="last_name")
-	private String lasrName;
+	private String lastName;
 	@Column(name="email")
 	private String email;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+
+
 	public String getFirstName() {
 		return firstName;
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getLasrName() {
-		return lasrName;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setLasrName(String lasrName) {
-		this.lasrName = lasrName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getEmail() {
 		return email;
@@ -44,11 +46,10 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Student(Long id, String firstName, String lasrName, String email) {
+	public Student(String firstName, String lastName, String email) {
 		super();
-		this.id = id;
 		this.firstName = firstName;
-		this.lasrName = lasrName;
+		this.lastName = lastName;
 		this.email = email;
 	}
 	public Student() {
@@ -56,7 +57,7 @@ public class Student {
 	}
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lasrName=" + lasrName + ", email=" + email + "]";
+		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
 	
 	

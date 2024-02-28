@@ -2,6 +2,7 @@ package com.example.serviceImpl;
 
 import java.util.List;
 
+
 import org.springframework.stereotype.Service;
 
 import com.example.entity.Student;
@@ -11,6 +12,7 @@ import com.example.service.StudentService;
 @Service
 public class StudentServiceImpl implements StudentService{
 	
+
 	private StudentRepository studentRepository;
 	
 
@@ -25,6 +27,36 @@ public class StudentServiceImpl implements StudentService{
 		
 		 return studentRepository.findAll();
 	}
+
+
+	@Override
+	public Student saveStudent(Student student) {
+		
+		return studentRepository.save(student);
+	}
+
+
+	@Override
+	public Student updateStudent(Student student) {
+		
+		return studentRepository.save(student);
+	}
+
+
+	@Override
+	public Student getStudentById(Long id) {
+		
+		return studentRepository.findById(id).get();
+	}
+
+
+	@Override
+	public void deleteStudentById(Long id) {
+		studentRepository.deleteById(id);
+		
+	}
+	
+	
 	
 
 }
